@@ -15,7 +15,7 @@
 
 	<div class="wrapper">
 		<header class="main-header">
-			<a href="<?=base_url()?>assets/index2.html" class="logo">
+			<a href="<?=site_url('dashboard')?>" class="logo">
 				<span class="logo-mini">A<b>L</b></span>
 				<span class="logo-lg">ANTRIAN<b> LOKET</b></span>
 			</a>
@@ -60,12 +60,12 @@
 						<!-- User Account -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-								<img src="<?=base_url()?>assets/dist/img/user2-160x160.jpg" class="user-image">
+								<img src="<?=base_url()?>assets/dist/img/mlg.png" class="user-image">
 								<span class="hidden-xs"><?=ucfirst($this->fungsi->user_login()->name)?></span>
 							</a>
 							<ul class="dropdown-menu">
 								<li class="user-header">
-									<img src="<?=base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle">
+									<img src="<?=base_url()?>assets/dist/img/mlg.png">
 									<p><span class="hidden-xs"><?=ucfirst($this->fungsi->user_login()->name)?></span>
 										<small>Indonesia</small>
 									</p>
@@ -90,7 +90,7 @@
 			<section class="sidebar">
 				<div class="user-panel">
 					<div class="pull-left image">
-						<img src="<?=base_url()?>assets/dist/img/user2-160x160.jpg" class="img-circle">
+						<img src="<?=base_url()?>assets/dist/img/mlg.png">
 					</div>
 					<div class="pull-left info">
 						<p><?=ucfirst($this->fungsi->user_login()->name)?></p>
@@ -109,14 +109,14 @@
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MENU ANTRIAN LOKET</li>
 					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
-					<li>
+					<li <?=$this->uri->segment(1) == 'dashboard' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 					</li>
-					<li>
+					<li <?=$this->uri->segment(1) == 'loket' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('loket')?>"><i class="fa fa-desktop"></i> <span>Loket</span></a>
 					</li>
 					<?php } ?>
-					<li>
+					<li <?=$this->uri->segment(1) == 'ambil' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('ambil')?>"><i class="fa fa-users"></i> <span>Ambil Antrian</span></a>
 					</li>
 					<!-- <li>
@@ -125,7 +125,7 @@
 						</a>
 					</li> -->
 					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
-					<li class="treeview">
+					<li class="treeview" <?=$this->uri->segment(1) == 'history' ? 'class="active"' : ''?>>
 						<a href="#">
 							<i class="fa fa-pie-chart"></i> <span>History</span>
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
@@ -138,7 +138,7 @@
 					<?php } ?>
 					<?php if($this->fungsi->user_login()->level == 1) { ?>
 					<li class="header">SETTINGS</li>
-					<li><a href="<?=site_url('user')?>"><i class="fa fa-user"></i> <span>Users</span></a></li>
+					<li <?=$this->uri->segment(1) == 'user' ? 'class="active"' : ''?>><a href="<?=site_url('user')?>"><i class="fa fa-user"></i> <span>Users</span></a></li>
 					<?php } ?>
 				</ul>
 			</section>

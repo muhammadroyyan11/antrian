@@ -13,10 +13,10 @@
 
     <div class="box">
          <div class="box-header">
-            <h3 class="box-title">Data Users</h3>
+            <h3 class="box-title">Data User</h3>
             <div class="pull-right">
                 <a href="<?=site_url('user/add')?>" class="btn btn-primary btn-flat">
-                    <i class="fa fa-user-plus"></i> Create
+                    <i class="fa fa-user-plus"></i> Tambah
                 </a>
             </div>
         </div>
@@ -30,7 +30,7 @@
                         <th>Name</th>
                         <th>Alamat</th>
                         <th>Level</th>
-                        <th>Action</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@
                                 </a>
                                 <input type="hidden" name="user_id" value="<?=$data->user_id?>">
                                 <button onclick="return confirm('Apakah Anda Yakin ?')"class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash"></i> Delete
+                                    <i class="fa fa-trash"></i> Hapus
                                 </button>
                             </form>
                         </td>

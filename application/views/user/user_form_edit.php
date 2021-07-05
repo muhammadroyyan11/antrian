@@ -1,7 +1,7 @@
 <section class="content-header">
     <h1>
         Users
-        <small>Pengurus</small>
+        <small>Pengguna</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
@@ -13,10 +13,10 @@
 
     <div class="box">
          <div class="box-header">
-            <h3 class="box-title">Tambah Kasir</h3>
+            <h3 class="box-title">Tambah User</h3>
             <div class="pull-right">
                 <a href="<?=site_url('user')?>" class="btn btn-warning btn-flat">
-                    <i class="fa fa-undo"></i> Back
+                    <i class="fa fa-undo"></i> Kembali
                 </a>
             </div>
         </div>
@@ -56,12 +56,13 @@
                             <select type="password" name="level" value="" class="form-control">
                                 <?php $level = $this->input->post('level') ? $this->input->post('level') : $row->level?>
                                 <option value="1" >Admin</option>
-                                <option value="2" <?=$level == 2 ? 'selected' : null?>>Kasir</option>
+                                <option value="2" <?=$level == 2 ? 'selected' : null?>>User</option>
+                                <option value="2" <?=$level == 2 ? 'selected' : null?>>Pengunjung</option>
                             </select>
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-flat">Save</button>
+                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
                             <button type="reset" class="btn btn-danger btn-flat">Reset</button>
                         </div>
                     </form>
