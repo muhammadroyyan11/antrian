@@ -12,29 +12,37 @@
 
     <!-- Info boxes -->
     <div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-desktop"></i></span>
+    <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?=$this->fungsi->count_loket();?></h3>
 
-            <div class="info-box-content">
-              <span class="info-box-text"><b>Jumlah Loket</b></span>
-              <span class="info-box-number"><?=$this->fungsi->count_loket();?></span>
+              <p>Jumlah Loket</p>
             </div>
-            <!-- /.info-box-content -->
+            <div class="icon">
+              <i class="fa fa-desktop"></i>
+            </div>
+            <a href="<?=site_url('loket')?>" class="small-box-footer">
+              Kelola Loket <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
-          <!-- /.info-box -->
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="fa fa-users"></i></span>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-yellow">
+            <div class="inner">
+              <h3><?=$this->fungsi->count_user();?></h3>
 
-            <div class="info-box-content">
-              <span class="info-box-text"><b>Jumlah User</b></span>
-              <span class="info-box-number"><?=$this->fungsi->count_user();?></span>
+              <p>Jumlah User</p>
             </div>
-            <!-- /.info-box-content -->
+            <div class="icon">
+              <i class="fa fa-user"></i>
+            </div>
+            <a href="<?=site_url('user')?>" class="small-box-footer">
+              Kelola User <i class="fa fa-arrow-circle-right"></i>
+            </a>
           </div>
-          <!-- /.info-box -->
         </div>
         <!-- /.col -->
       </div>
