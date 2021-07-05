@@ -1,6 +1,6 @@
 <section class="content-header">
     <h1>Dashboard
-        <small>Control panel</small>
+        <small>Dinas Kependudukan dan Pencatatan Sipil</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-aqua"><i class="fa fa-file"></i></span>
+            <span class="info-box-icon bg-aqua"><i class="fa fa-desktop"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text"><b>Jumlah Loket</b></span>

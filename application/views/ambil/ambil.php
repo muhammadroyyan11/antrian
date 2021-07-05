@@ -3,7 +3,7 @@
         Ambil Antrian
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Kasir</a></li>
+        <li><a href="#"><i class="fa fa-users"></i> Ambil Antrian</a></li>
     </ol>
 </section>
 
@@ -14,7 +14,9 @@
             <div class="box box-widget">
                 <div class="box-body">
                     <div class="agenda">
-                        <h1><center>1</center></h1>
+                        <center><h1>NOMER ANTRIAN ANDA</h1></center>
+                        <HR></HR>
+                        <center><h1><span id="" style="font-size:100pt">0</span></h1></center>
                     </div>
                 
                    <table width="100%">
