@@ -48,6 +48,12 @@ body {
 .layout-boxed {
   background: url('../img/boxed-bg.jpg') repeat fixed;
 }
+
+.agenda h1 {
+    font-size: 200px;
+    color: #000;
+    margin-top: -10px;
+}
 /*
  * Content Wrapper - contains the main content
  */

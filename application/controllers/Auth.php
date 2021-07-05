@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
 				);
 				$this->session->set_userdata($params);
 				echo "<script>
-					alert('selamat, Login berhasil');
+					alert('Selamat, Anda berhasil masuk');
 					window.location='".site_url('dashboard')."';
 				</script>";
 			} else {

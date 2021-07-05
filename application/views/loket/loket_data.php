@@ -1,10 +1,10 @@
 <section class="content-header">
     <h1>
         Loket
-        <small>Dinas kependudukan dan pencatatan sipil</small>
+        <small>Dinas Kependudukan dan Pencatatan Sipil</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-file"></i> Loket</a></li>
+        <li><a href="#"><i class="fa fa-desktop"></i> Loket</a></li>
     </ol>
 </section>
 
@@ -13,10 +13,10 @@
 
     <div class="box">
          <div class="box-header">
-            <h3 class="box-title">Data Loket</h3>
+            <!-- <h3 class="box-title">Data Loket</h3> -->
             <div class="pull-right">
                 <a href="<?=site_url('loket/add')?>" class="btn btn-primary btn-flat">
-                    <i class="fa fa-user-plus"></i> Create
+                    <i class="fa fa-user-plus"></i> Tambah
                 </a>
             </div>
         </div>
@@ -26,9 +26,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
+                        <th>Nama</th>
                         <th>Keterangan</th>
-                        <th>Action</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                                 </a>
                                 <input type="hidden" name="loket_id" value="<?=$data->loket_id?>">
                                 <button onclick="return confirm('Apakah Anda Yakin ?')"class="btn btn-danger btn-xs">
-                                    <i class="fa fa-trash"></i> Delete
+                                    <i class="fa fa-trash"></i> Hapus
                                 </button>
                             </form>
                         </td>

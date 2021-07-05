@@ -29,7 +29,7 @@
 
 				<div class="navbar-custom-menu">
 					<ul class="nav navbar-nav">
-						<li class="dropdown tasks-menu">
+						<!-- <li class="dropdown tasks-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								<i class="fa fa-flag-o"></i>
 								<span class="label label-danger">3</span>
@@ -56,7 +56,7 @@
 									<a href="#">View all tasks</a>
 								</li>
 							</ul>
-						</li>
+						</li> -->
 						<!-- User Account -->
 						<li class="dropdown user user-menu">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -75,7 +75,7 @@
 										<a href="#" class="btn btn-default btn-flat">Profile</a>
 									</div>
 									<div class="pull-right">
-										<a href="<?=site_url('auth/logout')?>" class="btn btn-flat bg-red">Sign out</a>
+										<a href="<?=site_url('auth/logout')?>" class="btn btn-flat bg-red">Keluar</a>
 									</div>
 								</li>
 							</ul>
@@ -107,18 +107,24 @@
 				</form>
 				<!-- sidebar menu -->
 				<ul class="sidebar-menu" data-widget="tree">
-					<li class="header">MAIN NAVIGATION</li>
+					<li class="header">MENU ANTRIAN LOKET</li>
+					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
 					<li>
 						<a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 					</li>
 					<li>
-						<a href="<?=site_url('loket')?>"><i class="fa fa-file"></i> <span>Loket</span></a>
+						<a href="<?=site_url('loket')?>"><i class="fa fa-desktop"></i> <span>Loket</span></a>
+					</li>
+					<?php } ?>
+					<li>
+						<a href="<?=site_url('ambil')?>"><i class="fa fa-users"></i> <span>Ambil Antrian</span></a>
 					</li>
 					<!-- <li>
 						<a href="">
 							<i class="fa fa-users"></i> <span>Customers</span>
 						</a>
 					</li> -->
+					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
 					<li class="treeview">
 						<a href="#">
 							<i class="fa fa-pie-chart"></i> <span>History</span>
@@ -129,8 +135,11 @@
 							<li><a href="#"><i class="fa fa-circle-o"></i> tes</a></li>
 						</ul>
 					</li>
+					<?php } ?>
+					<?php if($this->fungsi->user_login()->level == 1) { ?>
 					<li class="header">SETTINGS</li>
 					<li><a href="<?=site_url('user')?>"><i class="fa fa-user"></i> <span>Users</span></a></li>
+					<?php } ?>
 				</ul>
 			</section>
 		</aside>
@@ -144,7 +153,7 @@
 			<div class="pull-right hidden-xs">
 				<b>Version</b> 1.0
 			</div>
-			<strong>Copyright &copy; <?php echo date("Y")?> <a href="#">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a>.</strong> All rights reserved.
+			<strong>Copyright &copy; <?php echo date("Y")?> <a href="#">Dinas Kependudukan Dan Pencatatan Sipil Kota Malang</a>.</strong> JTI Polinema
 		</footer>
 
 	</div>
@@ -153,6 +162,19 @@
 	<script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="<?=base_url()?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="<?=base_url()?>assets/dist/js/adminlte.min.js"></script>
+	<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 
 </body>
 </html>

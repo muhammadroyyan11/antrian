@@ -56,7 +56,8 @@
                             <select type="password" name="level" value="<?=set_value('level')?>" class="form-control">
                                 <option value="">- Pilih -</option>
                                 <option value="1" <?=set_value('level') == 1 ? "selected" : null?>>Admin</option>
-                                <option value="2" <?=set_value('level') == 2 ? "selected" : null?>>Kasir</option>
+                                <option value="2" <?=set_value('level') == 2 ? "selected" : null?>>Loket</option>
+                                <option value="2" <?=set_value('level') == 3 ? "selected" : null?>>Pengunjung</option>
                             </select>
                             <span class="help-block"><?=form_error('level')?></span>
                         </div>
