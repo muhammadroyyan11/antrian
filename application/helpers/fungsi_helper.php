@@ -28,6 +28,14 @@ function check_admin() {
     }
 }
 
+function check_pengunjung() {
+    $ci =& get_instance();
+    $ci->load->library('fungsi');
+    if($ci->fungsi->user_login()->level != 3) {
+        redirect('ambil','refresh');        
+    }
+}
+
 // function indo_currency($nominal)
 // {
 //     $result = "Rp " . number_format($nominal, 2, ',', '.');

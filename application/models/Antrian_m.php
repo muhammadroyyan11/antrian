@@ -4,12 +4,17 @@ class Antrian_m extends CI_Model {
 
     public function get($id = null)
     {
+        $nowDate = date('Y-m-d');
+        $this->db->limit('1');
         $this->db->select('*');
         $this->db->from('antrian');
+		$this->db->where('tgl_antrian',$nowDate);
+		$this->db->order_by('no_antrian','DESC');
         if($id != null){
             $this->db->where('id_antrian', $id);
         }
         $query = $this->db->get();
+
         return $query;
     }
 

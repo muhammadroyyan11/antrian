@@ -10,12 +10,14 @@ class Loket_m extends CI_Model {
             $this->db->where('loket_id', $id);
         }
         $query = $this->db->get();
+        
         return $query;
     }
 
     public function add($post)
     {
         $params['name'] = $post['name'];
+        $params['kode_loket'] = $post['kode_loket'];
         $params['keterangan'] = $post['keterangan'];
         $this->db->insert('loket', $params);
     }

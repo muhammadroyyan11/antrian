@@ -31,6 +31,11 @@
                             <input type="text" name="name" value="<?=set_value('name')?>" class="form-control">
                             <span class="help-block"><?=form_error('name')?></span>
                         </div>
+                        <div class="form-group <?=form_error('kode_loket') ? 'has-error' : null?>">
+                            <label>Kode Loket *</label>
+                            <input type="text" name="kode_loket" value="<?=set_value('kode_loket')?>" class="form-control">
+                            <span class="help-block"><?=form_error('kode_loket')?></span>
+                        </div>
                         <div class="form-group <?=form_error('keterangan') ? 'has-error' : null?>">
                             <label>Keterangan *</label>
                             <input type="text" name="keterangan" value="<?=set_value('keterangan')?>" class="form-control">

@@ -25,13 +25,19 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <form action="" method="post">
-                        <div class="form-group <?=form_error('fullname') ? 'has-error' : null?>">
+                        <div class="form-group <?=form_error('name') ? 'has-error' : null?>">
                             <label>Nama *</label>
                             <input type="hidden" name="loket_id" value="<?=$row->loket_id?>.">
                             <input type="text" name="name" value="<?=$this->input->post('name') ?? $row->name?>" class="form-control">
                             <span class="help-block"><?=form_error('name')?></span>
                         </div>
-                        <div class="form-group <?=form_error('password') ? 'has-error' : null?>">
+                        <div class="form-group <?=form_error('kode_loket') ? 'has-error' : null?>">
+                            <label>Kode_loket *</label>
+                            <input type="hidden" name="loket_id" value="<?=$row->loket_id?>.">
+                            <input type="text" name="kode_loket" value="<?=$this->input->post('kode_loket') ?? $row->kode_loket?>" class="form-control">
+                            <span class="help-block"><?=form_error('name')?></span>
+                        </div>
+                        <div class="form-group <?=form_error('keterangan') ? 'has-error' : null?>">
                             <label>Keterangan *</label>
                             <input type="text" name="keterangan" value="<?=$this->input->post('keterangan')?>" class="form-control">
                             <span class="help-block"><?=form_error('keterangan')?></span>

@@ -16,7 +16,7 @@
                     <div class="agenda">
                         <center><h1>NOMER ANTRIAN ANDA</h1></center>
                         <HR></HR>
-                        <!-- <center><h1><span id="nomer" style="font-size:100pt"></span></h1></center> -->
+                        <!-- <center><h1><span id="nomer" style="font-size:100pt">10</span></h1></center> -->
                         <h1 id="nomer"><?php echo $antrian->row('nomer'); 
 					        if($antrian->row('nomer') < 1){
 						        $antri=0;
@@ -58,6 +58,7 @@
                                     <select name="member" class="form-control">
                                         <option value="">-- Silahakan pilih --</option>
                                         <?php foreach($loket as $l => $data){ ?>
+                                            <input type="text" name="no_antrian" value="<?php echo $no_antrian ?>">
                                             <option value="<?=$data->loket_id?>" <?=$data->loket_id ? 'selected' : NULL?>><?= $data->keterangan ?></option>
                                         <?php } ?>
                                     </select>

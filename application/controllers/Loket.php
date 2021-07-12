@@ -20,8 +20,11 @@ class Loket extends CI_Controller {
 
     public function add()
 	{
-		$this->form_validation->set_rules('name', 'Name', 'required');
+		$this->form_validation->set_rules('name', 'Name', 'required|is_unique[loket.name]');
+        $this->form_validation->set_rules('kode_loket', 'Kode_loket', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
+
+        $this->form_validation->set_message('is_unique', '%s sudah ada');
 
         if($this->form_validation->run() == FALSE)
         {
