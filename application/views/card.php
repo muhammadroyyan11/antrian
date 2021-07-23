@@ -8,23 +8,23 @@
 <section class="content">
 
     <!-- Info boxes -->
-    <?php foreach ($antrian as $a => $data) { ?>
-        <h1 id="nomer" style="margin-top: 5px;"><?php echo $data->no_antrian; 
-        if($data->no_antrian < 1){
+    <?php foreach ($antrianloket as $a => $data) { ?>
+        <input type="hidden" name="" id="nomer" value="<?php echo $data->no_antrian_loket; 
+        if($data->no_antrian_loket < 1){
             $antri=0;
         }
         else{
-            $antri=$data->no_antrian;
+            $antri=$data->no_antrian_loket;
         }
-        ?></h1>
+        ?>">
     <?php } ?>
-
+<!-- 
     <?php foreach ($antrianloket as $z => $data) { ?>
         <input type="text" name="no_antrian_loket" value="<?php echo $data->no_antrian_loket?>" class="form-control">
     <?php } ?>
     <?php foreach ($antrian as $a => $data) { ?>
         <input type="text" name="no_antrian" value="<?php echo $data->no_antrian ?>">
-    <?php } ?>
+    <?php } ?> -->
     <!-- <?php foreach ($antrianl as $a => $data) { ?>
         <input type="text" name="no_antrian_loket" value="<?= $data->no_antrian_loket ?>" disabled="" class="form-control">
     <?php } ?> -->
@@ -33,7 +33,7 @@
             <div class="col-lg-3 col-xs-6" a>
                 <div class="small-box bg-aqua">
                     <div class="inner">
-                        <input type="text" name="no_antrian_loket" value="<?= $data->loket_id ?>" disabled="" class="form-control">
+                        <input type="hidden" name="no_antrian_loket" value="<?= $data->loket_id ?>" disabled="" class="form-control">
                         <b>
                             <h3><?= $data->name ?></h3>
 
