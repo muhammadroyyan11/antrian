@@ -33,6 +33,19 @@ class AntrianLoket_m extends CI_Model {
         return $query;
     }
 
+    public function getAll($id = null)
+    {
+        // $nowDate = date('Y-m-d');
+        $this->db->select('*');
+        $this->db->from('antrian_loket');
+        // $this->db->where('tgl_antrian_loket');
+        if($id != null){
+            $this->db->where('id_antrian_loket', $id);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function get_max_id($table, $field, $where){
 		$this->db->select_max($field);
 		$this->db->where($where);
