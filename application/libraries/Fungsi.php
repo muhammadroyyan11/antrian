@@ -27,6 +27,12 @@ Class Fungsi {
         return $this->ci->user_m->get()->num_rows();
     }
 
+    public function count_antrianloket()
+    {
+        $this->ci->load->model('antrianloket_m');
+        return $this->ci->antrianloket_m->getDay()->num_rows();
+    }
+
     // public function count_item()
     // {
     //     $this->ci->load->model('item_m');
