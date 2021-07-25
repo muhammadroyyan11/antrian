@@ -133,7 +133,7 @@
 							<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
 						</a>
 						<ul class="treeview-menu">
-							<li><a href="#"><i class="fa fa-circle-o"></i> Antrian</a></li>
+							<li><a href="<?=site_url('antrian')?>"><i class="fa fa-circle-o"></i> Antrian</a></li>
 							<li><a href="#"><i class="fa fa-circle-o"></i> tes</a></li>
 						</ul>
 					</li>

@@ -38,6 +38,7 @@ class AntrianLoket_m extends CI_Model {
         // $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
+        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
         // $this->db->where('tgl_antrian_loket');
         if($id != null){
             $this->db->where('id_antrian_loket', $id);
@@ -76,15 +77,10 @@ class AntrianLoket_m extends CI_Model {
     //     $this->db->insert('antrian_loket', $params);
     // }
 
-    public function add($post)
+    public function del($id)
     {
-        // $nowDate = date('Y-m-d');
-        // // $params['name'] = $post['fullname'];
-        // $params['loket_id'] = $post['loket_id'];
-        // $params['no_antrian_loket'] = $post['no_antrian_loket'];
-        // $params['tgl_antrian_loket'] = $post[$nowDate];
-        // // $params['level'] = $post['level'];
-        // $this->db->insert('antrian_loket', $params);
+        $this->db->where('id_antrian_loket', $id);
+        $this->db->delete('antrian_loket');
     }
 
 }
