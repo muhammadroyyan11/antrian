@@ -35,7 +35,7 @@
                         </b>
                     </div>
                     <div class="icon">
-                        <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id . '/' .$antri); ?>"><i class="fa fa-print"></i></a>
+                        <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id . '/' .$antri); ?>" target="_blank"><i class="fa fa-print"></i></a>
                     </div>
                     <a href="<?php echo site_url('ambil/saveAntrian/' . $data->loket_id); ?>" class="small-box-footer">
                         Ambil Antrian <i class="fa fa-arrow-circle-right"></i>

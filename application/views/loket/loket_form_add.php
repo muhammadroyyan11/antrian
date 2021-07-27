@@ -16,7 +16,7 @@
             <h3 class="box-title">Data Loket</h3>
             <div class="pull-right">
                 <a href="<?=site_url('loket')?>" class="btn btn-warning btn-flat">
-                    <i class="fa fa-undo"></i> Back
+                    <i class="fa fa-undo"></i> Kembali
                 </a>
             </div>
         </div>
@@ -42,7 +42,7 @@
                             <span class="help-block"><?=form_error('keterangan')?></span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-flat">Save</button>
+                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
                             <button type="reset" class="btn btn-danger btn-flat">Reset</button>
                         </div>
                     </form>

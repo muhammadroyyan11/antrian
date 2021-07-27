@@ -7,11 +7,8 @@ class Ambil extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        // check_not_login();     
-        // check_admin();  
         $this->load->model(['loket_m', 'antrian_m', 'antrianloket_m']);
         $this->db->order_by('name', 'ASC');
-        // $this->load->model('antrian_m');
         $this->load->library('form_validation');
     }
 
@@ -44,6 +41,7 @@ class Ambil extends CI_Controller
         $this->db->insert('antrian');
         
         redirect('ambil/print/');
+        // redirect('ambil');
     }
 
     public function print()

@@ -4,7 +4,7 @@
         <small>Pengurus</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Users</a></li>
     </ol>
 </section>
 
@@ -16,7 +16,7 @@
             <h3 class="box-title">Tambah Kasir</h3>
             <div class="pull-right">
                 <a href="<?=site_url('user')?>" class="btn btn-warning btn-flat">
-                    <i class="fa fa-undo"></i> Back
+                    <i class="fa fa-undo"></i> Kembali
                 </a>
             </div>
         </div>
@@ -62,7 +62,7 @@
                             <span class="help-block"><?=form_error('level')?></span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-flat">Save</button>
+                            <button type="submit" class="btn btn-success btn-flat">Simpan</button>
                             <button type="reset" class="btn btn-danger btn-flat">Reset</button>
                         </div>
                     </form>
