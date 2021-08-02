@@ -1,6 +1,4 @@
-<!-- <?php
-$antrianloket = $antrianloket->no_antrian_loket;
-?> -->
+
 <section class="content-header">
     <h1>Loket 1
         <small>Layar Petugas Loket</small>
@@ -30,7 +28,7 @@ $antrianloket = $antrianloket->no_antrian_loket;
                                 <hr>
                                 <p style="font-size: 12pt;">Nomer Antrian</p>
                                 <b>
-                                    <p style="font-size: 70pt;"><?=$antrianloket?></p>
+                                    <p style="font-size: 70pt;"><?= isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "mari" ?></p>
                                 </b>
                                 <hr>
                                 <p class="" style="font-size: 10;">Petugas : <?= ucfirst($this->fungsi->user_login()->name) ?></p>
@@ -56,7 +54,7 @@ $antrianloket = $antrianloket->no_antrian_loket;
                                 </div>
                                 <div class="col-md-3">
                                     <center>
-                                        <a href="">
+                                        <a href="<?= isset($antrianloket->no_antrian_loket) ? site_url('tampil/getNext') . '/' . $antrianloket->no_antrian_loket : 'javascript:void(0)' ?>">
                                             <button class="btn btn-success btn-block"> Selanjutnya</button>
                                         </a>
                                     </center>
@@ -85,38 +83,35 @@ $antrianloket = $antrianloket->no_antrian_loket;
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th style="width: 10px">#</th>
-                            <th>Nomer Antrian</th>
-                            <th>Status</th>
-                            <th style="width: 40px"></th>
-                        </tr>
-                        <tr>
-                        <?php $no = 1;
-                        foreach($antrian as $key => $data) { ?>
-                            <td style="width:5%;"><?=$no++?>.</td>
-                            <td> <b> <?=$data->no_antrian_loket?> </b> </td>
-                            <td><span class=""><?=$data->status?></span></td>
-                            <td>
-                                <button type="button" class="btn btn-block btn-warning btn-xs">
-                                    <i class="fa fa-bullhorn"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <?php } ?>
+                <div class="box-body table-responsive">
+                    <table class="table table-bordered table-hover" id="table2">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th>Nomer Antrian</th>
+                                <th>Status</th>
+                                <th>aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $no = 1;
+                            foreach ($antrian as $key => $data) { ?>
+                                <tr>
+                                    <td style="width:5%;"><?= $no++ ?>.</td>
+                                    <td><b><?= $data->no_antrian_loket ?> </b> </td>
+                                    <td><span class=""><?= $data->status ?></span></td>
+                                    <td>
+                                        <button type="button" class="btn btn-block btn-warning btn-xs">
+                                            <i class="fa fa-bullhorn" typpe="submit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+
                     </table>
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+
+
                 </div>
                 <div class="box box-solid" style="background: whitesmoke;">
                     <div class="box-body">
@@ -140,16 +135,16 @@ $antrianloket = $antrianloket->no_antrian_loket;
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4>Peringatan</h4>
+                    <h4>Alert</h4>
                 </div>
                 <div class="modal-body">
                     <p>Apakah pelayanan sudah selesai&hellip;</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <a href="<?= site_url('tampil/petugas') ?>">
+                    <a href="<?= site_url('tampil/sudah'). '/' . $antrianloket ?>">
                         <button type="button" class="btn btn-success">
-                            selanjutnya
+                            Done
                         </button>
                     </a>
                 </div>

@@ -33,20 +33,59 @@ class Tampil extends CI_Controller
         $id = $this->session->userdata('userid');
         $user = $this->user_m->get($id)->row();
         $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
-        $data['antrianloket'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+
+        $data['antrianloket'] = $this->next(-1, $this->antrianloket_m->getPanggil($user->loket_id));
+        // $data['antrianloket'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $id))->row();
         $data['row'] = $this->tampil_m->getAll();
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
     }
 
-    public function next(){
-		$tanggal = date("Y-m-d");
-		$where =array('loket_id <' => 1, 'tgl_antrian_loket' => $tanggal);
-		$noAntrian = $this->antianloket_m->get_id('antrian_loket', $where, 'no_antrian_loket DESC');;
-		$data=array('no_antrian_loket' => $noAntrian->row('no_antrian_loket'), 'loket_id' => $this->session->userdata('loket'), 'username' => $this->session->userdata('username'), 'tgl_antrian_loket' => $tanggal);
+    public function next($current, $data) {
+        $temporary = null;
 
-		$w=array('id_antrian_loket' => $noAntrian->row('id_antrian_loket'));
-		$this->M_crud->edit('transaksi', $data, $w);
-		redirect('penjaga/loket/');
-	}
+        if ($current != -1) {
+            foreach ($data->result() as $value) {
+                if ($temporary != null) {
+                    return $value;
+                }
+                if ($current == $value->no_antrian_loket) {
+                    $temporary = $current;
+                }
+            }
+
+            return null;
+        } else {
+            return $data->row();
+        }
+    }
+
+    public function getNext($noAntrian){
+        $id = $this->session->userdata('userid');
+        $user = $this->user_m->get($id)->row();
+        $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+
+        $data['antrianloket'] = $this->next($noAntrian, $this->antrianloket_m->getPanggil($user->loket_id));
+        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $id))->row();
+        $data['row'] = $this->tampil_m->getAll();
+
+        $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
+    }
+
+    // public function next(){
+	// 	$tanggal = date("Y-m-d");
+    //     $id = $this->session->userdata('userid');
+    //     $user = $this->user_m->get($id)->row();
+	// 	$data['antrianloket'] = $this->antrianloket_m->getPanggil($user->loket_id)->result();
+
+	// 	redirect('tampil/petugas/', $data);
+	// }
+
+    public function sudah()
+    {
+        $this->db->set('status', 'Selesai');
+        $this->db->insert('antrian_loket');
+        
+        redirect('tampil/petugas/');
+    }
 }

@@ -32,6 +32,7 @@ class Ambil extends CI_Controller
 
         $this->db->set('loket_id', $loket_id);
         $this->db->set('no_antrian_loket', $tambah);
+        $this->db->set('status', 'Belum dipanggil');
         $this->db->set('tgl_antrian_loket', $tanggal);
         $this->db->insert('antrian_loket');
 

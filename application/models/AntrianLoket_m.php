@@ -18,22 +18,17 @@ class AntrianLoket_m extends CI_Model {
         return $query;
     }
 
-    public function get_id($table, $where){
-		$this->db->where($where);
-		$sql=$this->db->get($table);
-		return $sql;
-	}
 
-    public function getPanggil($id = null)
+    public function getPanggil($loketId = null)
     {
         $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
         $this->db->where('tgl_antrian_loket',$nowDate);
         $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
-        $this->db->order_by('id_antrian_loket','DESC');
-        if($id != null){
-            $this->db->where('id_antrian_loket', $id);
+        $this->db->order_by('id_antrian_loket','ASC');
+        if($loketId != null){
+            $this->db->where('antrian_loket.loket_id', $loketId);
         }
         $query = $this->db->get();
         return $query;
