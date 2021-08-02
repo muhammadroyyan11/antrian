@@ -110,23 +110,25 @@
 				<!-- sidebar menu -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">MENU ANTRIAN LOKET</li>
-					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
+					
 					<li <?=$this->uri->segment(1) == 'dashboard' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('dashboard')?>"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
 					</li>
 					<li <?=$this->uri->segment(1) == 'loket' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('loket')?>"><i class="fa fa-desktop"></i> <span>Loket</span></a>
 					</li>
-					<?php } ?>
 					<li <?=$this->uri->segment(1) == 'ambil' ? 'class="active"' : ''?>>
 						<a href="<?=site_url('ambil')?>"><i class="fa fa-users "></i> <span>Ambil Antrian</span></a>
+					</li>
+					<li <?=$this->uri->segment(1) == 'ambil' ? 'class="active"' : ''?>>
+						<a href="<?=site_url('tampil')?>"><i class="fa fa-user "></i> <span>Tampil</span></a>
 					</li>
 					<!-- <li>
 						<a href="">
 							<i class="fa fa-users"></i> <span>Customers</span>
 						</a>
 					</li> -->
-					<?php if($this->fungsi->user_login()->level == 1 && 2) { ?>
+					<?php if($this->fungsi->user_login()->level == 1) { ?>
 					<li class="treeview" <?=$this->uri->segment(1) == 'history' ? 'class="active"' : ''?>>
 						<a href="#">
 							<i class="fa fa-pie-chart"></i> <span>History</span>
@@ -134,7 +136,7 @@
 						</a>
 						<ul class="treeview-menu">
 							<li><a href="<?=site_url('antrian')?>"><i class="fa fa-circle-o"></i> Antrian</a></li>
-							<li><a href="#"><i class="fa fa-circle-o"></i> tes</a></li>
+							<li><a href="#"><i class="fa fa-circle-o"></i> Laporan per tanggal</a></li>
 						</ul>
 					</li>
 					<?php } ?>

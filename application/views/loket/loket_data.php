@@ -37,7 +37,7 @@
                     foreach($row->result() as $key => $data) { ?>
                     <tr>
                         <td style="width:5%;"><?=$no++?>.</td>
-                        <td><?=$data->name?></td>
+                        <td><?=$data->name_loket?></td>
                         <td><?=$data->kode_loket?></td>
                         <td><?=$data->keterangan?></td>
                         <td class="text-center" width="160px">

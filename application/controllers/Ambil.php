@@ -8,7 +8,6 @@ class Ambil extends CI_Controller
     {
         parent::__construct();
         $this->load->model(['loket_m', 'antrian_m', 'antrianloket_m']);
-        $this->db->order_by('name', 'ASC');
         $this->load->library('form_validation');
     }
 

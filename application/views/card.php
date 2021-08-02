@@ -29,7 +29,7 @@
                     <div class="inner">
                         <input type="hidden" name="no_antrian_loket" value="<?= $data->loket_id ?>" disabled="" class="form-control">
                         <b>
-                            <h3><?= $data->name ?></h3>
+                            <h3><?= $data->name_loket ?></h3>
 
                             <p><?= $data->keterangan ?></p>
                         </b>

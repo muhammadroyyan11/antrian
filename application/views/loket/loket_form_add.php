@@ -26,9 +26,9 @@
                 <div class="col-md-4 col-md-offset-4">
                 
                     <form action="" method="post">
-                        <div class="form-group <?=form_error('name') ? 'has-error' : null?>">
+                        <div class="form-group <?=form_error('name_loket') ? 'has-error' : null?>">
                             <label>Nama *</label>
-                            <input type="text" name="name" value="<?=set_value('name')?>" class="form-control">
+                            <input type="text" name="name_loket" value="<?=set_value('name_loket')?>" class="form-control">
                             <span class="help-block"><?=form_error('name')?></span>
                         </div>
                         <div class="form-group <?=form_error('kode_loket') ? 'has-error' : null?>">

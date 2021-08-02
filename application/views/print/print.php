@@ -21,7 +21,7 @@
             <?php foreach ($antrianloket as $a => $data) { ?>
                 <div class="row card-link" style="margin-left: 10px;"><?= $data->tgl_antrian_loket; date("h:i:sa"); ?></div>
                 <h2>ANTRIAN </h2>
-                <h1><?php echo $data->no_antrian_loket ?></h1><h4><?= $data->name ?></h4>
+                <h1><?php echo $data->no_antrian_loket ?></h1><h4><?= $data->name_loket ?></h4>
         </li>
     <?php } ?>
     <!-- <?php foreach ($loket as $key => $data) { ?>
