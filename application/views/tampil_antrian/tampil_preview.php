@@ -29,14 +29,15 @@
                                         <th>Nomer Antrian</th>
                                     </tr>
                                 </THead>
-                                <TBody class="bg-orange" style="font-size: 16pt;">
-                                    <?php $no = 1;
-                                    foreach ($row->result() as $key => $data) { ?>
+                                <TBody class="bg-blue" style="font-size: 16pt;">
+
+                                    <?php foreach ($loket as $key => $l) { ?>
                                         <tr>
-                                            <td><?= $data->name ?></td>
-                                            <td><?= $data->no_antrian_loket ?></td>
+                                            <td><b><?= $l->name_loket ?></b></td>
+                                            <td><b>TES</b></td>
                                         </tr>
                                     <?php } ?>
+
                                 </TBody>
                             </table>
                         </div>

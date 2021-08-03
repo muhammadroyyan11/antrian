@@ -24,7 +24,7 @@ class Tampil extends CI_Controller
 
     public function priview()
     {
-        $data['row'] = $this->tampil_m->getAll();
+        $data['loket'] = $this->loket_m->get()->result();
         $this->template->load('template2', 'tampil_antrian/tampil_preview', $data);
     }
 
@@ -87,8 +87,9 @@ class Tampil extends CI_Controller
         // echo $id;
     }
 
-    public function refresh()
-    {
-        redirect($_SERVER['REQUEST_URI'], 'refresh');
-    }
+    // public function refresh()
+    // {
+        
+    //     refresh();
+    // }
 }

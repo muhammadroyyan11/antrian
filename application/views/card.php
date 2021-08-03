@@ -1,6 +1,6 @@
 <center>
     <p>
-    <h1>Silahkan Mengambil Antrian Sesuai Dengan Kebutuhan</h1>
+    <h1>Silahkan Klik Refresh Dan Pilih Sesuai Kebutuhan Anda</h1>
     </p>
 </center>
 <hr>
@@ -22,6 +22,7 @@
         ?>">
     <?php } ?>
 
+    
     <div class="row">
         <?php foreach ($loket as $l => $data) { ?>
             <div class="col-lg-3 col-xs-6" a>

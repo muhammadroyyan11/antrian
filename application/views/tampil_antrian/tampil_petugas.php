@@ -1,5 +1,5 @@
 <section class="content-header">
-    <h1>Loket 1
+    <h1><?= ucfirst($this->fungsi->user_login()->name) ?>
         <small>Layar Petugas Loket</small>
     </h1>
     <ol class="breadcrumb">
@@ -10,18 +10,21 @@
 
 
 <section class="content">
-    <!-- START ALERTS AND CALLOUTS -->  
+    <!-- START ALERTS AND CALLOUTS -->
     <div class="row">
         <div class="col-md-8">
             <div class="box box-success">
                 <div class="box-header with-border">
                     <div>
                         <h3 class="box-title"> <i class="fa fa-users"></i> Antrian Pelayanan</h3>
-                        
+
                         <div class="pull-right">
-                            <a href="<?= site_url('tampil/refresh') ?>" class="btn btn-primary btn-flat">
+                            <a href="" class="btn btn-primary btn-flat" onclick="reload">
                                 <i class="fa fa-refresh"></i> Refresh
                             </a>
+                            <!-- <button class="btn btn-primary btn-flat" onclick="reload">
+                                <i class="fa fa-refresh"></i> Refresh
+                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -30,10 +33,9 @@
                     <div class="box box-solid" style="background: whitesmoke;">
                         <div class="box-body">
                             <Center>
-                                <p class="" style="font-size: 10;"><?php echo $loket->name_loket; ?></p>
-                                <hr>
-                                <p style="font-size: 12pt;">Nomer Antrian</p>
                                 <b>
+                                    <p style="font-size: 22pt;">Nomer Antrian</p>
+                                    <hr>
                                     <p style="font-size: 70pt;"><?= isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "Silahkan Refresh" ?></p>
                                 </b>
                                 <hr>
@@ -85,7 +87,7 @@
             <div class="box box-warning">
                 <div class="box-header with-border">
                     <div>
-                        <h3 class="box-title">Pelayanan hari ini</h3>
+                        <h3 class="box-title">Pelayanan <?= ucfirst($this->fungsi->user_login()->name) ?> hari ini</h3>
                     </div>
                 </div>
                 <!-- /.box-header -->
