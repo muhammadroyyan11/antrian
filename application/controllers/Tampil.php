@@ -41,7 +41,8 @@ class Tampil extends CI_Controller
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
     }
 
-    public function next($current, $data) {
+    public function next($current, $data)
+    {
         $temporary = null;
 
         if ($current != -1) {
@@ -60,7 +61,8 @@ class Tampil extends CI_Controller
         }
     }
 
-    public function getNext($noAntrian){
+    public function getNext($noAntrian)
+    {
         $id = $this->session->userdata('userid');
         $user = $this->user_m->get($id)->row();
         $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
@@ -72,20 +74,21 @@ class Tampil extends CI_Controller
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
     }
 
-    // public function next(){
-	// 	$tanggal = date("Y-m-d");
-    //     $id = $this->session->userdata('userid');
-    //     $user = $this->user_m->get($id)->row();
-	// 	$data['antrianloket'] = $this->antrianloket_m->getPanggil($user->loket_id)->result();
-
-	// 	redirect('tampil/petugas/', $data);
-	// }
-
-    public function sudah()
+    public function sudah($id)
     {
-        $this->db->set('status', 'Selesai');
-        $this->db->insert('antrian_loket');
-        
+        $set = 'selesai';
+        $params['status'] = $set;
+        $this->db->where('id_antrian_loket', $id);
+        $this->db->update('antrian_loket' ,$params);
+
         redirect('tampil/petugas/');
+
+
+        // echo $id;
+    }
+
+    public function refresh()
+    {
+        redirect($_SERVER['REQUEST_URI'], 'refresh');
     }
 }

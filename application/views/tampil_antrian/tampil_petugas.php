@@ -1,4 +1,3 @@
-
 <section class="content-header">
     <h1>Loket 1
         <small>Layar Petugas Loket</small>
@@ -9,14 +8,21 @@
     </ol>
 </section>
 
+
 <section class="content">
-    <!-- START ALERTS AND CALLOUTS -->
+    <!-- START ALERTS AND CALLOUTS -->  
     <div class="row">
         <div class="col-md-8">
             <div class="box box-success">
                 <div class="box-header with-border">
                     <div>
                         <h3 class="box-title"> <i class="fa fa-users"></i> Antrian Pelayanan</h3>
+                        
+                        <div class="pull-right">
+                            <a href="<?= site_url('tampil/refresh') ?>" class="btn btn-primary btn-flat">
+                                <i class="fa fa-refresh"></i> Refresh
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- /.box-header -->
@@ -28,7 +34,7 @@
                                 <hr>
                                 <p style="font-size: 12pt;">Nomer Antrian</p>
                                 <b>
-                                    <p style="font-size: 70pt;"><?= isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "mari" ?></p>
+                                    <p style="font-size: 70pt;"><?= isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "Silahkan Refresh" ?></p>
                                 </b>
                                 <hr>
                                 <p class="" style="font-size: 10;">Petugas : <?= ucfirst($this->fungsi->user_login()->name) ?></p>
@@ -142,9 +148,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <a href="<?= site_url('tampil/sudah'). '/' . $antrianloket ?>">
+                    <a href="<?= site_url('tampil/sudah') . '/' . $antrianloket->id_antrian_loket ?>">
                         <button type="button" class="btn btn-success">
-                            Done
+                            Selesai
                         </button>
                     </a>
                 </div>

@@ -121,7 +121,7 @@
 						<a href="<?=site_url('ambil')?>"><i class="fa fa-users "></i> <span>Ambil Antrian</span></a>
 					</li>
 					<li <?=$this->uri->segment(1) == 'ambil' ? 'class="active"' : ''?>>
-						<a href="<?=site_url('tampil')?>"><i class="fa fa-user "></i> <span>Tampil</span></a>
+						<a href="<?=site_url('tampil')?>"><i class="fa fa-user "></i> <span>Layar</span></a>
 					</li>
 					<!-- <li>
 						<a href="">
