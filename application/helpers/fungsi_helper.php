@@ -25,8 +25,6 @@ function check_admin() {
     $ci->load->library('fungsi');
     if($ci->fungsi->user_login()->level != 1) {
         redirect('dashboard','refresh');        
-    } else {
-        redirect('tampil/petugas','refresh');
     } 
 }
 

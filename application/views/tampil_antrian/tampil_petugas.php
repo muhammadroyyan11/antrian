@@ -1,3 +1,69 @@
+<?php
+$antrian = $antrianloket->no_antrian_loket;
+?>
+
+<audio id="suarabel" data-tesbe="tessss" src="<?php echo base_url('audio/Airport_Bell.mp3'); ?>"></audio>
+<audio id="suarabelnomorurut" src="<?php echo base_url('audio/antrian/nomor-urut.wav'); ?>"></audio>
+<audio id="diloket" src="<?php echo base_url('audio/antrian/loket.wav'); ?>"></audio>
+
+<?php
+if ($antrian > 11 && $antrian < 20) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, -1, 1) . '.wav'); ?>"></audio>
+<?php } else if ($antrian == 20) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+<?php } else if ($antrian > 20 && $antrian < 100) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+    <?php
+    $a = substr($antrian, -1, 1);
+    if ($a == 0) {
+    } else { ?>
+        <audio id="antrian1" src="<?php echo base_url('audio/antrian/' . $a . '.wav'); ?>"></audio>
+    <?php
+    }
+} else if ($antrian > 100 && $antrian < 110) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, -1, 1) . '.wav'); ?>"></audio>
+<?php
+} else if ($antrian > 111 && $antrian < 120) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, -1, 1) . '.wav'); ?>"></audio>
+<?php
+
+} else if ($antrian > 119 && $antrian < 210) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+    <?php
+    $a = substr($antrian, -1, 1);
+    if ($a == 0) {
+    } else { ?>
+        <audio id="antrian1" src="<?php echo base_url('audio/antrian/' . $a . '.wav'); ?>"></audio>
+    <?php
+    }
+} else if ($antrian == 210) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+<?php } else if ($antrian == 211) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+<?php } else if ($antrian > 211 && $antrian < 220) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+    <audio id="antrian1" src="<?php echo base_url('audio/antrian/' . substr($antrian, -1, 1) . '.wav'); ?>"></audio>
+<?php
+} else if ($antrian > 219 && $antrian < 1000) { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . substr($antrian, 0, 1) . '.wav'); ?>"></audio>
+<?php
+    $a = substr($antrian, 1, 1);
+    $b = substr($antrian, -1, 1);
+    echo "<audio id='antrian1' src='" . base_url('audio/antrian/' . $a) . ".wav'></audio>";
+    echo "<audio id='antrian2' src='" . base_url('audio/antrian/' . $b) . ".wav'></audio>";
+} else { ?>
+    <audio id="antrian" src="<?php echo base_url('audio/antrian/' . $antrian . '.wav'); ?>"></audio>
+<?php } ?>
+
+<audio id="<?= "loket".$this->fungsi->user_login()->loket_id ?>" src="<?= base_url('audio/antrian/' . $this->fungsi->user_login()->loket_id . '.wav'); ?>"></audio>
+<audio id="sepuluh" src="<?php echo base_url('audio/antrian/sepuluh.wav'); ?>"></audio>
+<audio id="sebelas" src="<?php echo base_url('audio/antrian/sebelas.wav'); ?>"></audio>
+<audio id="seratus" src="<?php echo base_url('audio/antrian/seratus.wav'); ?>"></audio>
+<audio id="belas" src="<?php echo base_url('audio/antrian/belas.wav'); ?>"></audio>
+<audio id="puluh" src="<?php echo base_url('audio/antrian/puluh.wav'); ?>"></audio>
+<audio id="ratus" src="<?php echo base_url('audio/antrian/ratus.wav'); ?>"></audio>
+
+
 <section class="content-header">
     <h1><?= ucfirst($this->fungsi->user_login()->name) ?>
         <small>Layar Petugas Loket</small>
@@ -22,9 +88,6 @@
                             <a href="" class="btn btn-primary btn-flat" onclick="reload">
                                 <i class="fa fa-refresh"></i> Refresh
                             </a>
-                            <!-- <button class="btn btn-primary btn-flat" onclick="reload">
-                                <i class="fa fa-refresh"></i> Refresh
-                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -36,10 +99,10 @@
                                 <b>
                                     <p style="font-size: 22pt;">Nomer Antrian</p>
                                     <hr>
-                                    <p style="font-size: 70pt;"><?= isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "Silahkan Refresh" ?></p>
+                                    <p style="font-size: 70pt;"><?= isset($antrian) ? $antrian : "Silahkan Refresh" ?></p>
                                 </b>
                                 <hr>
-                                <p class="" style="font-size: 10;">Petugas : <?= ucfirst($this->fungsi->user_login()->name) ?></p>
+                                <p class="" style="font-size: 10;">Status : <?= isset($antrianloket->status) ? $antrianloket->status : "-" ?></p>
                             </Center>
                         </div>
                         <!-- /.box-body -->
@@ -50,28 +113,27 @@
                             <div class="row d-grid gap-2 d-md-block mx-auto">
                                 <div class="col-md-3">
                                     <center>
-                                        <a href="">
-                                            <button class="btn btn-warning btn-block"> Panggil</button>
-                                        </a>
+                                     
+                                            <button class="btn btn-warning btn-block btn-panggil" data-loket="<?= $this->fungsi->user_login()->loket_id ?>" data-antrian="<?= isset($antrian) ? $antrian : null ?>"><i class="fa fa-phone"></i>&nbsp; Panggil</button>
+                                     
                                     </center>
                                 </div>
                                 <div class="col-md-3">
                                     <center>
-                                        <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#modal-info"> Selesai</button>
+                                        <button class="btn btn-primary btn-block" type="button" data-toggle="modal" data-target="#modal-info"><i class="fa fa-check"></i>&nbsp; Selesai</button>
                                     </center>
                                 </div>
                                 <div class="col-md-3">
                                     <center>
                                         <a href="<?= isset($antrianloket->no_antrian_loket) ? site_url('tampil/getNext') . '/' . $antrianloket->no_antrian_loket : 'javascript:void(0)' ?>">
-                                            <button class="btn btn-success btn-block"> Selanjutnya</button>
+                                            <button class="btn btn-success btn-block"><i class="fa fa-mail-forward"></i>&nbsp; Selanjutnya</button>
                                         </a>
                                     </center>
                                 </div>
                                 <div class="col-md-3">
                                     <center>
-                                        <a href="">
-                                            <button class="btn btn-danger btn-block"> Batal</button>
-                                        </a>
+                                        <button class="btn btn-danger btn-block" type="button" data-toggle="modal" data-target="#modal-batal"><i class="fa fa-remove "></i>&nbsp; Batal</button>
+
                                     </center>
                                 </div>
                             </div>
@@ -103,11 +165,11 @@
                         </thead>
                         <tbody>
                             <?php $no = 1;
-                            foreach ($antrian as $key => $data) { ?>
+                            foreach ($antrianlo as $key => $data) { ?>
                                 <tr>
                                     <td style="width:5%;"><?= $no++ ?>.</td>
                                     <td><b><?= $data->no_antrian_loket ?> </b> </td>
-                                    <td><span class=""><?= $data->status ?></span></td>
+                                    <td><?= $data->status ?></td>
                                     <td>
                                         <button type="button" class="btn btn-block btn-warning btn-xs">
                                             <i class="fa fa-bullhorn" typpe="submit"></i>
@@ -150,7 +212,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                    <a href="<?= site_url('tampil/sudah') . '/' . $antrianloket->id_antrian_loket ?>">
+                    <a href="<?= site_url('tampil/sudah') . '/' . $antrianloket->id_antrian_loket . '/' . $antrianloket->no_antrian_loket ?>">
                         <button type="button" class="btn btn-success">
                             Selesai
                         </button>
@@ -162,4 +224,37 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
+
+
+    <div class="modal modal-default fade" id="modal-batal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Alert</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah pelayanan ini dibatalkan ?&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <a href="<?= site_url('tampil/batal') . '/' . $antrianloket->id_antrian_loket . '/' . $antrianloket->no_antrian_loket ?>">
+                        <button type="button" class="btn btn-success">
+                            Selesai
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 </section>
+
+
+<!-- <script type="text/javascript">
+
+
+    function panggil() {
+        
+    }
+</script> -->

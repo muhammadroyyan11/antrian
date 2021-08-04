@@ -33,10 +33,10 @@ class Tampil extends CI_Controller
         $id = $this->session->userdata('userid');
         $user = $this->user_m->get($id)->row();
         $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
-
+        $data['antrianlo'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['antrianloket'] = $this->next(-1, $this->antrianloket_m->getPanggil($user->loket_id));
         // $data['antrianloket'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
-        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $id))->row();
+        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $this->session->userdata('loket_id')))->row();
         $data['row'] = $this->tampil_m->getAll();
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
     }
@@ -66,22 +66,55 @@ class Tampil extends CI_Controller
         $id = $this->session->userdata('userid');
         $user = $this->user_m->get($id)->row();
         $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
-
+        $data['antrianlo'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['antrianloket'] = $this->next($noAntrian, $this->antrianloket_m->getPanggil($user->loket_id));
-        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $id))->row();
+        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $this->session->userdata('loket_id')))->row();
         $data['row'] = $this->tampil_m->getAll();
 
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
     }
 
-    public function sudah($id)
+    public function sudah($id, $noAntrian)
     {
-        $set = 'selesai';
+        $i = $this->session->userdata('userid');
+        $user = $this->user_m->get($i)->row();
+        $set = '<span class="label label-success">Sudah terlayani</span>';
         $params['status'] = $set;
         $this->db->where('id_antrian_loket', $id);
         $this->db->update('antrian_loket' ,$params);
 
-        redirect('tampil/petugas/');
+        $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+        $data['antrianlo'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+        $data['antrianloket'] = $this->next($noAntrian, $this->antrianloket_m->getPanggil($user->loket_id));
+        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $this->session->userdata('loket_id')))->row();
+        $data['row'] = $this->tampil_m->getAll();
+
+
+        // redirect('tampil/getNext/', $data);
+        $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
+
+
+        // echo $id;
+    }
+
+    public function batal($id, $noAntrian)
+    {
+        $i = $this->session->userdata('userid');
+        $user = $this->user_m->get($i)->row();
+        $set = '<span class="label label-danger">Di Batalkan</span>';
+        $params['status'] = $set;
+        $this->db->where('id_antrian_loket', $id);
+        $this->db->update('antrian_loket' ,$params);
+
+        $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+        $data['antrianlo'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
+        $data['antrianloket'] = $this->next($noAntrian, $this->antrianloket_m->getPanggil($user->loket_id));
+        $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $i))->row();
+        $data['row'] = $this->tampil_m->getAll();
+
+
+        // redirect('tampil/getNext/', $data);
+        $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
 
 
         // echo $id;

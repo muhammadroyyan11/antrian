@@ -62,7 +62,7 @@
                         <div class="ratio ratio-16x9">
                             <video autoplay loop>
                                 <!-- change video -->
-                                <source src="<?= base_url() ?>assets/dist/video/DISPENDUKCAPIL.mp4"" type=" video/mp4">
+                                <source src="<?= base_url() ?>assets/dist/video/DISPENDUKCAPIL.mp4" type=" video/mp4">
                             </video>
                         </div>
                     </div>
