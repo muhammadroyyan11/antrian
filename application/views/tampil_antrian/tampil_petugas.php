@@ -1,5 +1,6 @@
 <?php
-$antrian = $antrianloket->no_antrian_loket;
+$antrian = isset($antrianloket->no_antrian_loket) ? $antrianloket->no_antrian_loket : "Belum Ada Antrian";
+// $antrian = $antrian->no_antrian_loket;
 ?>
 
 <audio id="suarabel" data-tesbe="tessss" src="<?php echo base_url('audio/Airport_Bell.mp3'); ?>"></audio>
@@ -55,7 +56,7 @@ if ($antrian > 11 && $antrian < 20) { ?>
     <audio id="antrian" src="<?php echo base_url('audio/antrian/' . $antrian . '.wav'); ?>"></audio>
 <?php } ?>
 
-<audio id="<?= "loket".$this->fungsi->user_login()->loket_id ?>" src="<?= base_url('audio/antrian/' . $this->fungsi->user_login()->loket_id . '.wav'); ?>"></audio>
+<audio id="<?= "loket" . $this->fungsi->user_login()->loket_id ?>" src="<?= base_url('audio/antrian/' . $this->fungsi->user_login()->loket_id . '.wav'); ?>"></audio>
 <audio id="sepuluh" src="<?php echo base_url('audio/antrian/sepuluh.wav'); ?>"></audio>
 <audio id="sebelas" src="<?php echo base_url('audio/antrian/sebelas.wav'); ?>"></audio>
 <audio id="seratus" src="<?php echo base_url('audio/antrian/seratus.wav'); ?>"></audio>
@@ -113,9 +114,9 @@ if ($antrian > 11 && $antrian < 20) { ?>
                             <div class="row d-grid gap-2 d-md-block mx-auto">
                                 <div class="col-md-3">
                                     <center>
-                                     
-                                            <button class="btn btn-warning btn-block btn-panggil" data-loket="<?= $this->fungsi->user_login()->loket_id ?>" data-antrian="<?= isset($antrian) ? $antrian : null ?>"><i class="fa fa-phone"></i>&nbsp; Panggil</button>
-                                     
+
+                                        <button class="btn btn-warning btn-block btn-panggil" data-loket="<?= $this->fungsi->user_login()->loket_id ?>" data-antrian="<?= isset($antrian) ? $antrian : null ?>" data-action="<?= site_url('tampil/updateStatus')?>"><i class="fa fa-phone"></i>&nbsp; Panggil</button>
+
                                     </center>
                                 </div>
                                 <div class="col-md-3">

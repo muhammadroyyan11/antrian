@@ -28,6 +28,19 @@ class Tampil extends CI_Controller
         $this->template->load('template2', 'tampil_antrian/tampil_preview', $data);
     }
 
+    public function get_antri()
+    {
+        $tanggal = date("Y-m-d");
+        $loket_id = $this->input->post('loket_id');
+		$data['antri'] = $this->antrianloket_m->get_nomer(['loket_id' => $loket_id, 'status' => '<span class="label label-danger">Terpanggil</span>'])->row();
+		if($data > 0){
+			echo json_encode($data);
+		}
+		else{
+			echo "&nbsp;";
+		}
+    }
+
     public function petugas()
     {
         $id = $this->session->userdata('userid');
@@ -118,6 +131,20 @@ class Tampil extends CI_Controller
 
 
         // echo $id;
+    }
+
+    public function updateStatus() {
+        $data = $this->input->post(NULL, TRUE);
+
+        $set = '<span class="label label-danger">Terpanggil</span>';
+        $params['status'] = $set;
+        $this->db->where(['loket_id' => $data['loket_id'], 'no_antrian_loket' => $data['no_antrian_loket']]);
+        $result = $this->db->update('antrian_loket' ,$params);
+        
+        if ($result) {
+            echo 'k';
+        }
+
     }
 
     // public function refresh()

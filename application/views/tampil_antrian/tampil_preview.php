@@ -34,7 +34,23 @@
                                     <?php foreach ($loket as $key => $l) { ?>
                                         <tr>
                                             <td><b><?= $l->name_loket ?></b></td>
-                                            <td><b>TES</b></td>
+                                            <td id="antrian<?= $l->loket_id; ?>"><b></b></td>
+
+                                            <script type="text/javascript">
+                                                setInterval(function() {
+                                                    var lok = <?php echo $l->loket_id; ?>;
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: "<?php echo site_url('tampil/get_antri/'); ?>",
+                                                        data: "loket_id=" + lok,
+                                                        success: function(data) {
+                                                            let antrian = JSON.parse(data);
+                                                            document.getElementById("antrian<?php echo $l->loket_id ?>").innerHTML = antrian.antri.no_antrian_loket;
+                                                        }
+                                                    })
+                                                }, 1000);
+                                            </script>
+
                                         </tr>
                                     <?php } ?>
 

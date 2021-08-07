@@ -1,17 +1,18 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') or exit('No direct script access allowed');
 
-class AntrianLoket_m extends CI_Model {
-    
+class AntrianLoket_m extends CI_Model
+{
+
     public function get($id = null)
     {
         $nowDate = date('Y-m-d');
         $this->db->limit('1');
         $this->db->select('*');
         $this->db->from('antrian_loket');
-        $this->db->where('tgl_antrian_loket',$nowDate);
-        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
-        $this->db->order_by('id_antrian_loket','DESC');
-        if($id != null){
+        $this->db->where('tgl_antrian_loket', $nowDate);
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
+        $this->db->order_by('id_antrian_loket', 'DESC');
+        if ($id != null) {
             $this->db->where('id_antrian_loket', $id);
         }
         $query = $this->db->get();
@@ -24,10 +25,10 @@ class AntrianLoket_m extends CI_Model {
         $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
-        $this->db->where('tgl_antrian_loket',$nowDate);
-        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
-        $this->db->order_by('id_antrian_loket','ASC');
-        if($loketId != null){
+        $this->db->where('tgl_antrian_loket', $nowDate);
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
+        $this->db->order_by('id_antrian_loket', 'ASC');
+        if ($loketId != null) {
             $this->db->where('antrian_loket.loket_id', $loketId);
         }
         $query = $this->db->get();
@@ -39,10 +40,10 @@ class AntrianLoket_m extends CI_Model {
         $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
-        $this->db->where('tgl_antrian_loket',$nowDate);
-        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
-        $this->db->order_by('id_antrian_loket','ASC');
-        if($loketId != null){
+        $this->db->where('tgl_antrian_loket', $nowDate);
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
+        $this->db->order_by('id_antrian_loket', 'ASC');
+        if ($loketId != null) {
             $this->db->where('antrian_loket.loket_id', $loketId);
         }
         $query = $this->db->get();
@@ -54,10 +55,10 @@ class AntrianLoket_m extends CI_Model {
         $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
-        $this->db->where('tgl_antrian_loket',$nowDate);
-        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
-        $this->db->order_by('id_antrian_loket','DESC');
-        if($id != null){
+        $this->db->where('tgl_antrian_loket', $nowDate);
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
+        $this->db->order_by('id_antrian_loket', 'DESC');
+        if ($id != null) {
             $this->db->where('id_antrian_loket', $id);
         }
         $query = $this->db->get();
@@ -69,21 +70,21 @@ class AntrianLoket_m extends CI_Model {
         // $nowDate = date('Y-m-d');
         $this->db->select('*');
         $this->db->from('antrian_loket');
-        $this->db->join('loket','loket.loket_id=antrian_loket.loket_id');
+        $this->db->join('loket', 'loket.loket_id=antrian_loket.loket_id');
         // $this->db->where('tgl_antrian_loket');
-        if($id != null){
+        if ($id != null) {
             $this->db->where('id_antrian_loket', $id);
         }
         $query = $this->db->get();
         return $query;
     }
 
-    public function get_max_id($table, $field, $where){
-		$this->db->select_max($field);
-		$this->db->where($where);
-		$sql = $this->db->get($table);
-		return $sql;
-	} 
+    public function get_nomer($where)
+    {
+        $this->db->select_max('no_antrian_loket');
+        $this->db->where($where);
+        return $this->db->get('antrian_loket');
+    }
 
     public function getAntrian()
     {
@@ -113,5 +114,4 @@ class AntrianLoket_m extends CI_Model {
         $this->db->where('id_antrian_loket', $id);
         $this->db->delete('antrian_loket');
     }
-
 }
