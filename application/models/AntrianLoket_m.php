@@ -81,8 +81,10 @@ class AntrianLoket_m extends CI_Model
 
     public function get_nomer($where)
     {
+        $tanggal = date("Y-m-d");
         $this->db->select_max('no_antrian_loket');
         $this->db->where($where);
+        // $this->db->where($tanggal);
         return $this->db->get('antrian_loket');
     }
 

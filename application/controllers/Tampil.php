@@ -30,9 +30,9 @@ class Tampil extends CI_Controller
 
     public function get_antri()
     {
-        $tanggal = date("Y-m-d");
+        $tanggal = date("Y-m-d"); 
         $loket_id = $this->input->post('loket_id');
-		$data['antri'] = $this->antrianloket_m->get_nomer(['loket_id' => $loket_id, 'status' => '<span class="label label-danger">Terpanggil</span>'])->row();
+		$data['antri'] = $this->antrianloket_m->get_nomer(['loket_id' => $loket_id, 'tgl_antrian_loket'=> $tanggal ,'status' => '<span class="label label-danger">Terpanggil</span>'])->row();
 		if($data > 0){
 			echo json_encode($data);
 		}
