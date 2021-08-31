@@ -32,7 +32,7 @@ class Tampil extends CI_Controller
     {
         $tanggal = date("Y-m-d"); 
         $loket_id = $this->input->post('loket_id');
-		$data['antri'] = $this->antrianloket_m->get_nomer(['loket_id' => $loket_id, 'tgl_antrian_loket'=> $tanggal ,'status' => '<span class="label label-danger">Terpanggil</span>'])->row();
+		$data['antri'] = $this->antrianloket_m->get_nomer(['loket_id' => $loket_id, 'tgl_antrian_loket' => $tanggal ,'status' => '<span class="label label-danger">Terpanggil</span>'])->row();
 		if($data > 0){
 			echo json_encode($data);
 		}
@@ -48,7 +48,6 @@ class Tampil extends CI_Controller
         $data['antrian'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['antrianlo'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['antrianloket'] = $this->next(-1, $this->antrianloket_m->getPanggil($user->loket_id));
-        // $data['antrianloket'] = $this->antrianloket_m->getAntrianByLoketId($user->loket_id)->result();
         $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $this->session->userdata('loket_id')))->row();
         $data['row'] = $this->tampil_m->getAll();
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
@@ -102,12 +101,8 @@ class Tampil extends CI_Controller
         $data['loket'] = $this->loket_m->get_id('loket', array('loket_id' => $this->session->userdata('loket_id')))->row();
         $data['row'] = $this->tampil_m->getAll();
 
-
-        // redirect('tampil/getNext/', $data);
         $this->template->load('template2', 'tampil_antrian/tampil_petugas', $data);
 
-
-        // echo $id;
     }
 
     public function batal($id, $noAntrian)
