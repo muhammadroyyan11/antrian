@@ -53,10 +53,9 @@ class Loket extends CI_Controller {
 
     public function edit($id)
     {
-        $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('name_loket', 'Name', 'required');
         $this->form_validation->set_rules('keterangan', 'Keterangan', 'required');
 
-        
         if($this->form_validation->run() == FALSE)
         {
             $query = $this->loket_m->get($id);

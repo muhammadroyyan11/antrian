@@ -161,7 +161,6 @@ if ($antrian > 11 && $antrian < 20) { ?>
                                 <th style="width: 10px">#</th>
                                 <th>Nomer Antrian</th>
                                 <th>Status</th>
-                                <th>aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -171,11 +170,7 @@ if ($antrian > 11 && $antrian < 20) { ?>
                                     <td style="width:5%;"><?= $no++ ?>.</td>
                                     <td><b><?= $data->no_antrian_loket ?> </b> </td>
                                     <td><?= $data->status ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-block btn-warning btn-xs">
-                                            <i class="fa fa-bullhorn" typpe="submit"></i>
-                                        </button>
-                                    </td>
+                                   
                                 </tr>
                             <?php } ?>
                         </tbody>

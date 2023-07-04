@@ -28,8 +28,8 @@
                         <div class="form-group <?=form_error('name_loket') ? 'has-error' : null?>">
                             <label>Nama *</label>
                             <input type="hidden" name="loket_id" value="<?=$row->loket_id?>.">
-                            <input type="text" name="name_loket" value="<?=$this->input->post('name_loket') ?? $row->name?>" class="form-control">
-                            <span class="help-block"><?=form_error('name')?></span>
+                            <input type="text" name="name_loket" value="<?=$this->input->post('name_loket') ?? $row->name_loket?>" class="form-control">
+                            <span class="help-block"><?=form_error('name_loket')?></span>
                         </div>
                         <div class="form-group <?=form_error('kode_loket') ? 'has-error' : null?>">
                             <label>Kode_loket *</label>

@@ -23,7 +23,7 @@ class Loket_m extends CI_Model {
 
     public function add($post)
     {
-        $params['name'] = $post['name_loket'];
+        $params['name_loket'] = $post['name_loket'];
         $params['kode_loket'] = $post['kode_loket'];
         $params['keterangan'] = $post['keterangan'];
         $this->db->insert('loket', $params);
@@ -37,7 +37,7 @@ class Loket_m extends CI_Model {
 
     public function edit($post)
     {
-        $params['name'] = $post['name_loket'];
+        $params['name_loket'] = $post['name_loket'];
         $params['keterangan'] = $post['keterangan'];
         $this->db->where('loket_id', $post['loket_id']);
         $this->db->update('loket', $params);
